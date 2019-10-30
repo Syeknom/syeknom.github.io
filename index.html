@@ -73,9 +73,17 @@
 			<!--This value will be replaced-->
 			</span>
                 </div>
+		<select id="qty1">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		    
                 <input type="button" 
        		value="Buy Now"
-       		onclick="location.href='#';" 
+       		onclick="addQty1();location.href='#';" 
        		data-fsc-action="Add,Checkout"
        		data-fsc-item-path-value="test-product-2"
        		class="button-choose pure-button" />
@@ -105,5 +113,12 @@
     </div> <!-- end pricing-tables -->
 </div> <!-- end l-content -->
 
+<script type="text/javascript">
+	function addQty1() {
+		var qty1 = document.getElementById("qty1").value;
+		fastspring.builder.update('test-product', qty1)
+	}
+</script>
+	
 </body>
 </html>
