@@ -129,7 +129,7 @@ p {
  * Styles for the price and the corresponding <span>per month</span>
  */
 .pricing-table-price {
-    font-size: 4em;
+    font-size: 3em;
     margin: 0.2em 0 0;
     font-weight: 100;
 }
@@ -221,7 +221,7 @@ p {
  */
 @media (min-width: 480px) {
     .banner {
-        height: 400px;
+        height: 200px;
     }
     .banner-head {
         font-size: 3em;
