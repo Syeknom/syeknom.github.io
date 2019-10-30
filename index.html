@@ -32,7 +32,8 @@
 	<script type="text/javascript">
 		function addQty1() {
 			var qty1 = document.getElementById("qty1").value;
-			fastspring.builder.update('test-product', qty1)
+			fastspring.builder.update('test-product', qty1);
+			document.write("Debug: " + qty1);
 		}
 	</script>
 	
