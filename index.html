@@ -31,9 +31,24 @@
 	</script>
 	
 	<script>
-	function addQty1()
+	function addQty(productNum)
 	{
-	var e = document.getElementById("qty1");
+	switch(productNum) {
+		case 1:
+			var e = document.getElementById("qty1");
+			var product = 'test-product';
+			break;
+		case 2:
+			var e = document.getElementById("qty2");
+			var product = 'test-product-2';
+			break;
+		case 3:
+			var e = document.getElementById("qty3");
+			var product = 'test-product-3';
+			break;
+		default: 
+			var e = document.getElementById("qty1");
+	}
 	var qty1 = e.options[e.selectedIndex].value;
 	var s =
 	{
@@ -42,7 +57,7 @@
 		//Define the product path(s) and the quantity to add.
 		'products' : [
 			{
-				'path':'test-product',
+				'path': product,
 				'quantity': qty1
 				}
 		],
@@ -84,7 +99,7 @@
 		    
                 <input type="button" 
        		value="Buy Now"
-       		onclick="addQty1();" 
+       		onclick="addQty(1);" 
        		class="button-choose pure-button" />
             </div>
         </div>
@@ -100,12 +115,18 @@
 			<!--This value will be replaced-->
 			</span>
                 </div>
-	    
+		    
+		<span class="quantity">Quantity: <select id="qty2">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select></span>
+		    
                 <input type="button" 
        		value="Buy Now"
-       		onclick="location.href='#';" 
-       		data-fsc-action="Add,Checkout"
-       		data-fsc-item-path-value="test-product-2"
+       		onclick="addQty(2);" 
        		class="button-choose pure-button" />
             </div>
         </div>
@@ -122,11 +143,17 @@
 			</span>
                 </div>
 
+		<span class="quantity">Quantity: <select id="qty3">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select></span>
+
                 <input type="button" 
        		value="Buy Now"
-       		onclick="location.href='#';" 
-       		data-fsc-action="Add,Checkout"
-       		data-fsc-item-path-value="test-product-3"
+       		onclick="addQty(3);" 
        		class="button-choose pure-button" />
             </div>
         </div>
