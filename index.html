@@ -29,7 +29,28 @@
 		data-storefront="adamharvey.test.onfastspring.com/popup-adamharvey"
 		data-debug="true">
 	</script>
-
+	
+	<script>
+	function addQty1()
+	{
+	var e = document.getElementById("qty1");
+	var qty1 = e.options[e.selectedIndex].value;
+	var s =
+	{
+		//Reset the cart session  to remove everything added to the cart previously.
+		'reset':true,
+		//Define the product path(s) and the quantity to add.
+		'products' : [
+			{
+				'path':'test-product',
+				'quantity': qty1
+				}
+		],
+		'checkout': true
+	}
+	fastspring.builder.push(s);
+	}
+	</script>
 </head>
 <body>
 	
@@ -112,27 +133,6 @@
     </div> <!-- end pricing-tables -->
 </div> <!-- end l-content -->
 
-<script>
-function addQty()
-{
-	var e = document.getElementById("qty1");
-	var qty1 = e.options[e.selectedIndex].value;
-	var s =
-	{
-		//Reset the cart session  to remove everything added to the cart previously.
-		'reset':true,
-		//Define the product path(s) and the quantity to add.
-		'products' : [
-			{
-				'path':'test-product',
-				'quantity': qty1
-				}
-		],
-		'checkout': true
-	}
-	fastspring.builder.push(s);
-}
-</script>
 
 </body>
 </html>
