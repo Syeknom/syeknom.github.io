@@ -143,7 +143,17 @@ p {
         *color: #fff;
     }
 
-
+/*
+ * -- PRICING TABLE Quantity --
+ * Styles for the quantity
+ */
+.pricing-table-price {
+    margin: 0.2em 0 0;
+}
+    .pricing-table-price span {
+        display: block;
+        text-align: center;
+    }
 
 /*
  * -- PRICING TABLE LIST --
