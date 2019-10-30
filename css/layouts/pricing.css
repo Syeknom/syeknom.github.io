@@ -118,6 +118,7 @@ p {
     .pricing-table-header h2 {
         margin: 0;
         padding-top: 2em;
+        padding-bottom: 2em;
         font-size: 1em;
         font-weight: normal;
 
