@@ -7,9 +7,7 @@
   <title>Adam's Test Store</title>
 
   <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js" type="text/javascript" data-storefront="aharvey.test.onfastspring.com/popup-aharvey">
-  </script>
 
-  <script>
   	document.addEventListener("DOMContentLoaded", function() {
   		fastspring.builder.recognize({
   			'email':'aharvey@fastspring.com',
@@ -24,7 +22,22 @@
   			'postalCode': '1077 ZX' //optional
   		});
   	});
-  </script>
+
+	function addProduct(product)
+	{
+		var s =
+		{
+			//Define the product path(s) and the quantity to add.
+			'products' : [
+				{
+					'path':product,
+					'quantity': 1
+				}
+			]
+		}
+		fastspring.builder.push(s);
+	}
+</script>
 
   <style>
     span {
@@ -77,7 +90,7 @@
     </tr>
     <tr>
       <td>
-        <button data-fsc-item-path-value="digital-good-1" data-fsc-action="Add">
+        <button data-fsc-item-path-value="digital-good-1" data-fsc-action="Add" onclick="addProduct('digital-good-1');" >
           Add to Cart
         </button>
       </td>
