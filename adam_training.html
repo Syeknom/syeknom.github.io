@@ -9,6 +9,23 @@
   <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js" type="text/javascript" data-storefront="aharvey.test.onfastspring.com/popup-aharvey">
   </script>
 
+  <script>
+  	document.addEventListener("DOMContentLoaded", function() {
+  		fastspring.builder.recognize({
+  			'email':'aharvey@fastspring.com',
+  			'firstName':'Adam',
+  			'lastName':'Harvey',
+  			'company': 'Fastspring', //optional
+  			'phone': '+31202251052', //optional
+  			'addressLine1': 'Strawinskylaan 3101',  //optional
+  			'city': 'Amsterdam',  //optional
+  			'region': 'Noord-Holland',  //optional
+  			'country': 'NL',  //optional
+  			'postalCode': '1077 ZX' //optional
+  		});
+  	});
+  </script>
+
   <style>
     span {
       font-family: helvetica;
