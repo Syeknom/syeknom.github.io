@@ -29,7 +29,7 @@
   <script>
 	function addProduct(product)
 	{
-		var s =
+		var sesh =
 		{
       "update": true,
 			//Define the product path(s) and the quantity to add.
@@ -40,7 +40,7 @@
 				}
 			]
 		}
-		fastspring.builder.push(s);
+		fastspring.builder.push(sesh);
     window.alert('Product ' + product + ' added to the cart!');
 	}
 </script>
@@ -97,7 +97,7 @@
     <tr>
       <td>
         <button onclick="addProduct('digital-good-1');" >
-          Add to Cart X
+          Add to Cart
         </button>
       </td>
       <td>
