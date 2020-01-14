@@ -38,7 +38,7 @@
   <script>
 	function addProduct(product)
 	{
-    var qty = (int) (long) jsonObject.getInt(data.groups[0].items[0].quantity);
+    var qty = Number(data.groups[0].items[0].quantity);
     console.log(qty);
 		var sesh =
 		{
