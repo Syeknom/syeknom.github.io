@@ -6,9 +6,13 @@
   <meta name="description" content="Adam's Test Store">
   <title>Adam's Test Store</title>
 
-  <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js" type="text/javascript" data-storefront="aharvey.test.onfastspring.com/popup-aharvey" data-data-callback="dataCallback" data-continuous="true">
-  </script>
-  <script>
+  <script id="fsc-api"
+    src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js"
+    type="text/javascript"
+    data-storefront="aharvey.test.onfastspring.com/popup-aharvey"
+    data-data-callback="dataCallback"
+    data-continuous="true">
+
     document.addEventListener("DOMContentLoaded", function() {
       fastspring.builder.recognize({
         'email': 'aharvey@fastspring.com',
@@ -23,8 +27,7 @@
         'postalCode': '1077 ZX' //optional
       });
     });
-  </script>
-  <script>
+
     function dataCallback(data) {
       document.getElementById("test").innerHTML = "<pre>Test: " + JSON.stringify(data.groups[0].items[0].quantity, null, 4) + "</pre>";
     }
@@ -42,6 +45,7 @@
       fastspring.builder.push(sesh);
       window.alert('Product ' + product + ' added to the cart!');
     }
+
   </script>
 
   <style>
