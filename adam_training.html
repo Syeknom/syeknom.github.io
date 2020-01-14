@@ -31,18 +31,15 @@
 
     function addProduct(product) {
 
-      var qty = function dataCallback(data) {
-        var x = Number(JSON.stringify(data.groups[0].items[0].quantity, null, 4));
-        return x;
-      }
+      var test = dataCallback(data);
 
-      console.log(qty);
+      console.log(test);
       var sesh = {
         "update": true,
         //Define the product path(s) and the quantity to add.
         'products': [{
           'path': product,
-          'quantity': qty++
+          'quantity': 1
         }]
       }
       fastspring.builder.push(sesh);
