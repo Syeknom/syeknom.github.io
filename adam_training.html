@@ -8,7 +8,8 @@
 
   <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js" type="text/javascript"
   data-storefront="aharvey.test.onfastspring.com/popup-aharvey"
-  data-data-callback="dataCallback">
+  data-data-callback="dataCallback"
+  data-continuous="true">
   </script>
 
   <script>
@@ -30,7 +31,7 @@
 
   <script>
       function dataCallback(data) {
-          document.getElementById("test").innerHTML = "<pre>Test: "+JSON.stringify(data.groups.items.quantity, null, 4)+"</pre>";
+          document.getElementById("test").innerHTML = "<pre>Test: "+JSON.stringify(data.currency, null, 4)+"</pre>";
       }
   </script>
 
