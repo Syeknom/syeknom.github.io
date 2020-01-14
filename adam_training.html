@@ -6,7 +6,9 @@
   <meta name="description" content="Adam's Test Store">
   <title>Adam's Test Store</title>
 
-  <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js" type="text/javascript" data-storefront="aharvey.test.onfastspring.com/popup-aharvey">
+  <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js" type="text/javascript"
+  data-storefront="aharvey.test.onfastspring.com/popup-aharvey"
+  data-data-callback="dataCallback">
   </script>
 
   <script>
@@ -24,6 +26,12 @@
   			'postalCode': '1077 ZX' //optional
   		});
   	});
+  </script>
+
+  <script>
+      function dataCallback(data) {
+          document.getElementById("test").innerHTML = "<pre>Test: "+JSON.stringify(data.groups.items.quantity, null, 4)+"</pre>";
+      }
   </script>
 
   <script>
@@ -96,14 +104,10 @@
     </tr>
     <tr>
       <td>
-        <button onclick="addProduct('digital-good-1');" >
-          Add to Cart
-        </button>
+        <button onclick="addProduct('digital-good-1');" >Add to Cart</button>
       </td>
       <td>
-        <button data-fsc-item-path-value="digital-good-2" data-fsc-action="Add">
-          Add to Cart
-        </button>
+        <button data-fsc-item-path-value="digital-good-2" data-fsc-action="Add">Add to Cart</button>
       </td>
     </tr>
   </table>
@@ -113,6 +117,8 @@
 <button data-fsc-action="Checkout">
   Checkout
 </button>
+
+<br /> <div id="test"></div>
 
 </body>
 
