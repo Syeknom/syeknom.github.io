@@ -38,7 +38,7 @@
   <script>
 	function addProduct(product)
 	{
-    var qty = Number(data.groups[0].items[0].quantity);
+    var qty = Number(JSON.stringify(data.groups[0].items[0].quantity, null, 4));
     console.log(qty);
 		var sesh =
 		{
