@@ -6,55 +6,42 @@
   <meta name="description" content="Adam's Test Store">
   <title>Adam's Test Store</title>
 
-  <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js" type="text/javascript"
-  data-storefront="aharvey.test.onfastspring.com/popup-aharvey"
-  data-data-callback="dataCallback"
-  data-continuous="true">
-  </script>
+  <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js" type="text/javascript" data-storefront="aharvey.test.onfastspring.com/popup-aharvey" data-data-callback="dataCallback" data-continuous="true">
+  
+    document.addEventListener("DOMContentLoaded", function() {
+      fastspring.builder.recognize({
+        'email': 'aharvey@fastspring.com',
+        'firstName': 'Adam',
+        'lastName': 'Harvey',
+        'company': 'Fastspring', //optional
+        'phone': '0031202251052', //optional
+        'addressLine1': 'Strawinskylaan 3101', //optional
+        'city': 'Amsterdam', //optional
+        'region': 'Noord-Holland', //optional
+        'country': 'NL', //optional
+        'postalCode': '1077 ZX' //optional
+      });
+    });
 
-  <script>
-  	document.addEventListener("DOMContentLoaded", function() {
-  		fastspring.builder.recognize({
-  			'email':'aharvey@fastspring.com',
-  			'firstName':'Adam',
-  			'lastName':'Harvey',
-  			'company': 'Fastspring', //optional
-  			'phone': '0031202251052', //optional
-  			'addressLine1': 'Strawinskylaan 3101',  //optional
-  			'city': 'Amsterdam',  //optional
-  			'region': 'Noord-Holland',  //optional
-  			'country': 'NL',  //optional
-  			'postalCode': '1077 ZX' //optional
-  		});
-  	});
-  </script>
+    function dataCallback(data) {
+      document.getElementById("test").innerHTML = "<pre>Test: " + JSON.stringify(data.groups[0].items[0].quantity, null, 4) + "</pre>";
+    }
 
-  <script>
-      function dataCallback(data) {
-          document.getElementById("test").innerHTML = "<pre>Test: "+JSON.stringify(data.groups[0].items[0].quantity, null, 4)+"</pre>";
+    function addProduct(product) {
+      var qty = Number(JSON.stringify(data.groups[0].items[0].quantity, null, 4));
+      console.log(qty);
+      var sesh = {
+        "update": true,
+        //Define the product path(s) and the quantity to add.
+        'products': [{
+          'path': product,
+          'quantity': qty++
+        }]
       }
+      fastspring.builder.push(sesh);
+      window.alert('Product ' + product + ' added to the cart!');
+    }
   </script>
-
-  <script>
-	function addProduct(product)
-	{
-    var qty = Number(JSON.stringify(data.groups[0].items[0].quantity, null, 4));
-    console.log(qty);
-		var sesh =
-		{
-      "update": true,
-			//Define the product path(s) and the quantity to add.
-			'products' : [
-				{
-					'path':product,
-					'quantity': qty++
-				}
-			]
-		}
-		fastspring.builder.push(sesh);
-    window.alert('Product ' + product + ' added to the cart!');
-	}
-</script>
 
   <style>
     span {
@@ -107,7 +94,7 @@
     </tr>
     <tr>
       <td>
-        <button onclick="addProduct('digital-good-1');" >Add to Cart</button>
+        <button onclick="addProduct('digital-good-1');">Add to Cart</button>
       </td>
       <td>
         <button data-fsc-item-path-value="digital-good-2" data-fsc-action="Add">Add to Cart</button>
@@ -115,13 +102,14 @@
     </tr>
   </table>
 
-<br />
+  <br />
 
-<button data-fsc-action="Checkout">
-  Checkout
-</button>
+  <button data-fsc-action="Checkout">
+    Checkout
+  </button>
 
-<br /> <div id="test"></div>
+  <br />
+  <div id="test"></div>
 
 </body>
 
