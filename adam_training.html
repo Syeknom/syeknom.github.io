@@ -38,6 +38,8 @@
   <script>
 	function addProduct(product)
 	{
+    int qty = data.groups[0].items[0].quantity.getInt("qty");
+    console.log(qty);
 		var sesh =
 		{
       "update": true,
@@ -45,7 +47,7 @@
 			'products' : [
 				{
 					'path':product,
-					'quantity': data.groups[0].items[0].quantity++
+					'quantity': qty++
 				}
 			]
 		}
