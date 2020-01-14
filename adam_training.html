@@ -7,7 +7,7 @@
   <title>Adam's Test Store</title>
 
   <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js" type="text/javascript" data-storefront="aharvey.test.onfastspring.com/popup-aharvey" data-data-callback="dataCallback" data-continuous="true">
-  
+
     document.addEventListener("DOMContentLoaded", function() {
       fastspring.builder.recognize({
         'email': 'aharvey@fastspring.com',
@@ -28,7 +28,12 @@
     }
 
     function addProduct(product) {
-      var qty = Number(JSON.stringify(data.groups[0].items[0].quantity, null, 4));
+
+      var qty = function dataCallback(data) {
+        var x = Number(JSON.stringify(data.groups[0].items[0].quantity, null, 4));
+        return x;
+      }
+      
       console.log(qty);
       var sesh = {
         "update": true,
