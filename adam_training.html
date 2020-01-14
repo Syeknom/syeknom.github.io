@@ -29,16 +29,13 @@
             'country': 'NL', //optional
             'postalCode': '1077 ZX' //optional
           });
-        });
-</script>
 
-  <script>
     function dataCallback(data) {
       document.getElementById("test").innerHTML = "<pre>Test: " + JSON.stringify(data.groups[0].items[0].quantity, null, 4) + "</pre>";
     }
-  </script>
 
-  <script>
+  <!-- suggestion: calculate total number of items in the shopping cart -->
+
     function addProduct(product) {
 
       var sesh = {
