@@ -31,7 +31,7 @@
 
   <script>
       function dataCallback(data) {
-          document.getElementById("test").innerHTML = "<pre>Test: "+JSON.stringify(data.groups.items[0].quantity, null, 4)+"</pre>";
+          document.getElementById("test").innerHTML = "<pre>Test: "+JSON.stringify(data.groups[0].items[0].quantity, null, 4)+"</pre>";
       }
   </script>
 
