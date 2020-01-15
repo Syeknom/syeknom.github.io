@@ -28,16 +28,12 @@
           function dataCallback(data) {
 
             var dataJSON = JSON.stringify(data);
-            var mods = JSON.parse(dataJSON);
 
-            for (var key in mods)  {
-              console.log(key);
-              // console.log(mods[key]);
-              var keys = Object.keys(mods[key]);
-              console.log(keys);
+            for (x in dataJSON) {
+              document.getElementById("test").innerHTML += x;
             }
 
-            document.getElementById("test").innerHTML = "<pre>Test: " + JSON.stringify(data.groups[0].items[0].quantity, null, 4) + "</pre>";
+            //document.getElementById("test").innerHTML = "<pre>Test: " + JSON.stringify(data.groups[0].items[0].quantity, null, 4) + "</pre>";
           }
 
 
