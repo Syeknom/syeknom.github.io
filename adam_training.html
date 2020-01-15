@@ -27,7 +27,9 @@
 
           function dataCallback(data) {
 
-            for (x in data) {
+            var prodSelected = false;
+
+            for (x in data.groups.items) {
               document.getElementById("test").innerHTML += x + " = " + data[x] + "<br>";
             }
 
