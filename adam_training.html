@@ -1,13 +1,3 @@
-<!--
-set up a hidden div with the item quantity
-
-use smart display to change between add to cart or add another to Cart
-  https://fastspringexamples.com/product-directives/data-fsc-smartdisplay/
-
-use the value in the div and increment it
-
--->
-
 <html>
 
 <head>
@@ -36,6 +26,17 @@ use the value in the div and increment it
         });
 
           function dataCallback(data) {
+
+            var dataJSON = JSON.sringify(data);
+            var mods = JSON.parse(dataJSON);
+
+            for (var key in mods)  {
+              console.log(key);
+              // console.log(mods[key]);
+              var keys = Object.keys(mods[key]);
+              console.log(keys);
+            }
+
             document.getElementById("test").innerHTML = "<pre>Test: " + JSON.stringify(data.groups[0].items[0].quantity, null, 4) + "</pre>";
           }
 
@@ -66,7 +67,7 @@ use the value in the div and increment it
             }
             fastspring.builder.push(sesh);
             document.getElementById("digitalGood1Qty").innerHTML = incQty;
-            window.alert('Product ' + product + ' quantity incremented to ' + incQty + '!');
+            window.alert('Product ' + product + ' added to the cart!');
           }
   </script>
 
