@@ -27,9 +27,7 @@
 
           function dataCallback(data) {
 
-            var dataJSON = JSON.stringify(data);
-
-            for (x in dataJSON) {
+            for (x in data) {
               document.getElementById("test").innerHTML += x;
             }
 
