@@ -1,3 +1,13 @@
+<!--
+set up a hidden div with the item quantity
+
+use smart display to change between add to cart or add another to Cart
+  https://fastspringexamples.com/product-directives/data-fsc-smartdisplay/
+
+use the value in the div and increment it
+
+-->
+
 <html>
 
 <head>
@@ -43,6 +53,22 @@
             fastspring.builder.push(sesh);
             window.alert('Product ' + product + ' added to the cart!');
           }
+
+          function incrementProduct(product,qty) {
+
+            var incQty = qty++;
+            var sesh = {
+              "update": true,
+              //Define the product path(s) and the quantity to add.
+              'products': [{
+                'path': product,
+                'quantity': incQty
+              }]
+            }
+            fastspring.builder.push(sesh);
+            document.getElementById("digitalGood1Qty").innerHTML = incQty;
+            window.alert('Product ' + product + ' quantity incremented to ' + incQty + '!');
+          }
   </script>
 
   <style>
@@ -53,12 +79,15 @@
     td {
       padding: 15px;
     }
+
+    div.hidden {
+      display: none;
+    }
   </style>
 
 </head>
 
 <body>
-
 
   <img src="https://d8y8nchqlnmka.cloudfront.net/5syTLQcMROo/hwylhkJ1RlM/small_logo.png" />
   <br />
@@ -96,7 +125,9 @@
     </tr>
     <tr>
       <td>
-        <button onclick="addProduct('digital-good-1');">Add to Cart</button>
+        <div id="digitalGood1Qty" class="hidden">1</div>
+        <button onclick="addProduct('digital-good-1');" data-fsc-item-path="digital-good-1" data-fsc-item-selection-smartdisplay-inverse>Add to Cart</button>
+        <button onclick="incrementProduct('digital-good-1',document.getElementById('digitalGood1Qty').innerText);" data-fsc-item-path="digital-good-1" data-fsc-item-selection-smartdisplay>Add another to Cart</button>
       </td>
       <td>
         <button data-fsc-item-path-value="digital-good-2" data-fsc-action="Add">Add to Cart</button>
