@@ -55,9 +55,9 @@ use the value in the div and increment it
           }
 
           function incrementProduct(product,qty) {
-            console.log('incrementProdudt called');
+            console.log('incrementProduct called');
             console.log('Quantity: ' + qty);
-            var incQty = qty++;
+            var incQty = Number(qty)++;
             var sesh = {
               "update": true,
               //Define the product path(s) and the quantity to add.
