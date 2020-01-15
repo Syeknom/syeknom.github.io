@@ -28,7 +28,7 @@
           function dataCallback(data) {
 
             for (x in data) {
-              document.getElementById("test").innerHTML += x;
+              document.getElementById("test").innerHTML += x + " = " + data[x] + "<br>";
             }
 
             //document.getElementById("test").innerHTML = "<pre>Test: " + JSON.stringify(data.groups[0].items[0].quantity, null, 4) + "</pre>";
