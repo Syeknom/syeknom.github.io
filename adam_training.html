@@ -27,16 +27,20 @@
 
           function dataCallback(data) {
 
-            var prodSelected = false;
+           // determine the number of items in the checkout by counting the quantities of all selected items
+           var itemsInCheckout = 0;
 
-            //for (x in data.groups.items) {
-            //  document.getElementById("test").innerHTML += x + " = " + data[x] + "<br>";
-            //}
+            for (i = 0; i < data.groups[0].items.length; i++) {
+              Object.keys(data.groups[0].items[i]).forEach(function(key) {
+                  var value = (data.groups[0].items[i])[key];
+                    if (key == "quantity" && data.groups[0].items[i].selected == true) {
+                      itemsInCheckout = itemsInCheckout + value;
+                    }
+              })
+            }
 
-            //document.getElementById("test").innerHTML = "<pre>Test: " + JSON.stringify(data.groups[0].items[0].quantity, null, 4) + "</pre>";
-
-
-            document.getElementById("test").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
+          document.getElementById("test").innerHTML = "<pre>Total number of items in checkout: " + itemsInCheckout+ "</pre>";
+            //document.getElementById("test").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
           }
 
 
