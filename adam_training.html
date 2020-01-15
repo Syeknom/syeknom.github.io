@@ -29,11 +29,14 @@
 
             var prodSelected = false;
 
-            for (x in data.groups.items) {
-              document.getElementById("test").innerHTML += x + " = " + data[x] + "<br>";
-            }
+            //for (x in data.groups.items) {
+            //  document.getElementById("test").innerHTML += x + " = " + data[x] + "<br>";
+            //}
 
             //document.getElementById("test").innerHTML = "<pre>Test: " + JSON.stringify(data.groups[0].items[0].quantity, null, 4) + "</pre>";
+
+
+            document.getElementById("log").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
           }
 
 
