@@ -35,6 +35,7 @@
                   var value = (data.groups[0].items[i])[key];
                     if (key == "quantity" && data.groups[0].items[i].selected == true) {
                       itemsInCheckout = itemsInCheckout + value;
+                      document.getElementById(data.groups[0].items[i].path + "-qty").innerHTML = value;
                     }
               })
             }
