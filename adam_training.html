@@ -41,7 +41,7 @@ use the value in the div and increment it
 
 
           function addProduct(product) {
-
+            console.log('addProduct called');
             var sesh = {
               "update": true,
               //Define the product path(s) and the quantity to add.
@@ -55,7 +55,8 @@ use the value in the div and increment it
           }
 
           function incrementProduct(product,qty) {
-
+            console.log('incrementProdudt called');
+            console.log('Quantity: ' + qty);
             var incQty = qty++;
             var sesh = {
               "update": true,
@@ -66,6 +67,7 @@ use the value in the div and increment it
               }]
             }
             fastspring.builder.push(sesh);
+            console.log('Quantity: ' + inQty);
             document.getElementById("digitalGood1Qty").innerHTML = incQty;
             window.alert('Product ' + product + ' quantity incremented to ' + incQty + '!');
           }
@@ -125,7 +127,6 @@ use the value in the div and increment it
     </tr>
     <tr>
       <td>
-        <div id="digitalGood1Qty" class="hidden">1</div>
         <button onclick="addProduct('digital-good-1');" data-fsc-item-path="digital-good-1" data-fsc-item-selection-smartdisplay-inverse>Add to Cart</button>
         <button onclick="incrementProduct('digital-good-1',document.getElementById('digitalGood1Qty').innerText);" data-fsc-item-path="digital-good-1" data-fsc-item-selection-smartdisplay>Add another to Cart</button>
       </td>
@@ -143,7 +144,7 @@ use the value in the div and increment it
 
   <br />
   <div id="test"></div>
-
+  <div id="digitalGood1Qty" class="hidden">1</div>
 </body>
 
 </html>
