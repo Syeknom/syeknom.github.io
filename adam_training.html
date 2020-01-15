@@ -41,7 +41,6 @@ use the value in the div and increment it
 
 
           function addProduct(product) {
-            console.log('addProduct called');
             var sesh = {
               "update": true,
               //Define the product path(s) and the quantity to add.
@@ -55,10 +54,8 @@ use the value in the div and increment it
           }
 
           function incrementProduct(product,qty) {
-            console.log('incrementProduct called');
-            console.log('Quantity: ' + qty);
+
             var incQty = Number(qty) + 1;
-            console.log('Incremented quantity: ' + incQty);
             var sesh = {
               "update": true,
               //Define the product path(s) and the quantity to add.
@@ -131,7 +128,8 @@ use the value in the div and increment it
         <button onclick="incrementProduct('digital-good-1',document.getElementById('digitalGood1Qty').innerText);" data-fsc-item-path="digital-good-1" data-fsc-item-selection-smartdisplay>Add another to Cart</button>
       </td>
       <td>
-        <button data-fsc-item-path-value="digital-good-2" data-fsc-action="Add">Add to Cart</button>
+        <button onclick="addProduct('digital-good-2');" data-fsc-item-path="digital-good-2" data-fsc-item-selection-smartdisplay-inverse>Add to Cart</button>
+        <button onclick="incrementProduct('digital-good-2',document.getElementById('digitalGood2Qty').innerText);" data-fsc-item-path="digital-good-2" data-fsc-item-selection-smartdisplay>Add another to Cart</button>
       </td>
     </tr>
   </table>
@@ -145,6 +143,7 @@ use the value in the div and increment it
   <br />
   <div id="test"></div>
   <div id="digitalGood1Qty" class="hidden">1</div>
+  <div id="digitalGood2Qty" class="hidden">1</div>
 </body>
 
 </html>
