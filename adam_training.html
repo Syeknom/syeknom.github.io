@@ -47,34 +47,28 @@
           }
 
 
-          function addProduct(product) {
+          function addProduct(product,action,qty) {
+            var newQuantity = 0;
+
+            if (action == 'add'){
+              newQuantity = 1;
+            } elseif (action == 'inc') {
+              newQuantity = Number(qty) + 1;
+              document.getElementById(product + "-qty").innerHTML = newQuantity;
+            }
+
             var sesh = {
               "update": true,
               //Define the product path(s) and the quantity to add.
               'products': [{
                 'path': product,
-                'quantity': 1
+                'quantity': newQuantity
               }]
             }
             fastspring.builder.push(sesh);
             window.alert('Product ' + product + ' added to the cart!');
           }
 
-          function incrementProduct(product,qty) {
-
-            var incQty = Number(qty) + 1;
-            var sesh = {
-              "update": true,
-              //Define the product path(s) and the quantity to add.
-              'products': [{
-                'path': product,
-                'quantity': incQty
-              }]
-            }
-            fastspring.builder.push(sesh);
-            document.getElementById(product + "-qty").innerHTML = incQty;
-            window.alert('Product ' + product + ' added to the cart!');
-          }
   </script>
 
   <style>
@@ -131,12 +125,12 @@
     </tr>
     <tr>
       <td>
-        <button onclick="addProduct('digital-good-1');" data-fsc-item-path="digital-good-1" data-fsc-item-selection-smartdisplay-inverse>Add to Cart</button>
-        <button onclick="incrementProduct('digital-good-1',document.getElementById('digital-good-1-qty').innerText);" data-fsc-item-path="digital-good-1" data-fsc-item-selection-smartdisplay>Add another to Cart</button>
+        <button onclick="addProduct('digital-good-1','add');" data-fsc-item-path="digital-good-1" data-fsc-item-selection-smartdisplay-inverse>Add to Cart</button>
+        <button onclick="addProduct('digital-good-1','inc',document.getElementById('digital-good-1-qty').innerText);" data-fsc-item-path="digital-good-1" data-fsc-item-selection-smartdisplay>Add another to Cart</button>
       </td>
       <td>
-        <button onclick="addProduct('digital-good-2');" data-fsc-item-path="digital-good-2" data-fsc-item-selection-smartdisplay-inverse>Add to Cart</button>
-        <button onclick="incrementProduct('digital-good-2',document.getElementById('digital-good-2-qty').innerText);" data-fsc-item-path="digital-good-2" data-fsc-item-selection-smartdisplay>Add another to Cart</button>
+        <button onclick="addProduct('digital-good-2','add');" data-fsc-item-path="digital-good-2" data-fsc-item-selection-smartdisplay-inverse>Add to Cart</button>
+        <button onclick="addProduct('digital-good-2','inc',document.getElementById('digital-good-2-qty)').innerText);" data-fsc-item-path="digital-good-2" data-fsc-item-selection-smartdisplay>Add another to Cart</button>
       </td>
     </tr>
   </table>
