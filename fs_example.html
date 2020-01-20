@@ -13,21 +13,22 @@
 <script>
 	document.addEventListener("DOMContentLoaded", function()
 		{
-      var itemsInCheckout = {"digital-good-1":5,"digital-good-2":10};
-
+      var items = {"digital-good-1":5,"digital-good-2":10};
+      var itemsInCheckout = 0;
       var session = new Object();
 
-			session['reset']=true;
+      session['reset']=true;
 
-      for (var key in itemsInCheckout) {
-        if (itemsInCheckout.hasOwnProperty(key)) {
-            session[key] = itemsInCheckout[key]
+      for (var key in items) {
+        if (items.hasOwnProperty(key)) {
+            session[key] = items[key];
+            itemsInCheckout++;
         }
       };
 
       session['products'] = [
 					{
-						'path':itemsInCheckout,
+						'path':items[key],
 						'quantity':5
 					},
 				];
