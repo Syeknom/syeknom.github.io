@@ -1,8 +1,54 @@
 <html>
 <head>
 <title>Adam's Fastspring Example</title>
+
+<script
+	id="fsc-api"
+	src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.0/fastspring-builder.min.js"
+	type="text/javascript"
+	data-storefront="aharvey.test.onfastspring.com/popup-aharvey"
+	>
+</script>
+
+<script>
+	//Fire once the page is loaded.
+	document.addEventListener("DOMContentLoaded", function()
+		{
+			session =
+			{
+				'reset':true,
+
+				'products' : [
+					{
+						'path':'digital-good-1',
+						'quantity':5
+					},
+				],
+				'paymentContact':{
+          'email': 'aharvey@fastspring.com',
+          'firstName': 'Adam',
+          'lastName': 'Harvey',
+          'company': 'Fastspring', //optional
+          'phone': '0031202251052', //optional
+          'addressLine1': 'Strawinskylaan 3101', //optional
+          'city': 'Amsterdam', //optional
+          'region': 'Noord-Holland', //optional
+          'country': 'NL', //optional
+          'postalCode': '1077 ZX' //optional
+				}
+			}
+
+			fastspring.builder.push(session;
+		});
+</script>
+
 </head>
 <body>
-  <h1>Test</h>
+  <h1>Adam&#39;s Fastspring Example</h>
+
+  <button style="width:300px;font-weight:bold" data-fsc-action="Checkout">
+    Checkout
+  </button>
+
 </body>
 </html>
