@@ -15,23 +15,20 @@
 		{
       var itemsInCheckout = {"digital-good-1":5,"digital-good-2":10};
 
-			session =
-			{
-				'reset':true,
-      }
+			session['reset']=true;
 
       for (var key in itemsInCheckout) {
         if (itemsInCheckout.hasOwnProperty(key)) {
             session[key] = itemsInCheckout[key]
         }
-      }
+      };
 
       session['products'] = [
 					{
 						'path':itemsInCheckout,
 						'quantity':5
 					},
-				]
+				];
 
       session['paymentContact'] = {
           'email': 'aharvey@fastspring.com',
@@ -44,7 +41,7 @@
           'region': 'Noord-Holland', //optional
           'country': 'NL', //optional
           'postalCode': '1077 ZX' //optional
-				}
+				};
 
 
       console.log(session);
@@ -53,7 +50,7 @@
       // update the page to display the number of items in the checkout
       document.getElementById("itemsInCheckout").innerHTML = "<pre>Total number of items in checkout: " + itemsInCheckout+ "</pre>";
 
-    }
+    });
 
 </script>
 
