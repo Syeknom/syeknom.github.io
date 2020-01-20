@@ -22,7 +22,7 @@
       for (var key in items) {
         if (items.hasOwnProperty(key)) {
             session[key] = items[key];
-            itemsInCheckout++;
+            itemsInCheckout= itemsInCheckout + items[key];
         }
       };
 
