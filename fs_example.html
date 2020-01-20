@@ -11,20 +11,29 @@
 </script>
 
 <script>
-	//Fire once the page is loaded.
 	document.addEventListener("DOMContentLoaded", function()
 		{
+      var itemsInCheckout = {"digital-good-1":5,"digital-good-2":10};
+
 			session =
 			{
 				'reset':true,
+      }
 
-				'products' : [
+      for (var key in itemsInCheckout) {
+        if (itemsInCheckout.hasOwnProperty(key)) {
+            session[key] = itemsInCheckout[key]
+        }
+      }
+
+      session['products'] = [
 					{
-						'path':'digital-good-1',
+						'path':itemsInCheckout,
 						'quantity':5
 					},
-				],
-				'paymentContact':{
+				]
+
+      session['paymentContact'] = {
           'email': 'aharvey@fastspring.com',
           'firstName': 'Adam',
           'lastName': 'Harvey',
@@ -36,15 +45,22 @@
           'country': 'NL', //optional
           'postalCode': '1077 ZX' //optional
 				}
-			}
+
 
 			fastspring.builder.push(session)
-		});
+
+      // update the page to display the number of items in the checkout
+      document.getElementById("itemsInCheckout").innerHTML = "<pre>Total number of items in checkout: " + itemsInCheckout+ "</pre>";
+
+    }
+
 </script>
 
 </head>
 <body>
   <h1>Adam's Fastspring Example</h>
+
+  <div id="itemsInCheckout"></div>
 
   <button style="width:300px;font-weight:bold" data-fsc-action="Checkout">
     Checkout
