@@ -14,7 +14,7 @@
         var e = document.getElementById("interval");
         var intv = e.options[e.selectedIndex].value;
 
-        var billings = document.getElementById("billings");
+        var billings = document.getElementById("billings").value;
         console.log("Interval = " + intv + " / Number of Billings = " + billings);
 
         // build the secure payload
@@ -50,7 +50,7 @@
   <span data-fsc-item-path="basic-subscription" data-fsc-item-price></span>
 
   <p><select id="interval">
-    <optioon value="week">Weekly</optioon>
+    <option value="week">Weekly</option>
     <option value="month">Monthly</option>
     <option value="year">Yearly</option>
   </select></p>
