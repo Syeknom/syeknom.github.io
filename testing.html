@@ -14,7 +14,8 @@
         var e = document.getElementById("interval");
         var intv = e.options[e.selectedIndex].value;
 
-        console.log("Interval = " + intv);
+        var billings = document.getElementById("billings");
+        console.log("Interval = " + intv + " / Number of Billings = " + billings);
 
         // build the secure payload
         fastspring.builder.secure(
@@ -34,7 +35,8 @@
           									"USD": 10.00
           								},
                           "interval": intv,
-                          "intervalLength": 1
+                          "intervalLength": 1,
+                          "intervalCount": billings
           							}
         				   		}
         				 	]
@@ -48,9 +50,11 @@
   <span data-fsc-item-path="basic-subscription" data-fsc-item-price></span>
 
   <p><select id="interval">
+    <optioon value="week">Weekly</optioon>
     <option value="month">Monthly</option>
     <option value="year">Yearly</option>
   </select></p>
+  <p>Number of Billings: <input type="number" value="6" id="billings"></input></p>
 
   <p><button onclick="buy();" >Add to cart</button></p>
 </body>
