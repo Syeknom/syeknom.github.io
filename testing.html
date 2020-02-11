@@ -10,11 +10,13 @@
 
 <script type="text/javascript">
       function buy() {
+        // select interval choice from drop-down menu
         var e = document.getElementById("interval");
         var intv = e.options[e.selectedIndex].value;
 
         console.log("Interval = " + intv);
 
+        // build the secure payload
         fastspring.builder.secure(
         			{
         				"contact": {
