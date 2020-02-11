@@ -10,7 +10,8 @@
 
 <script type="text/javascript">
       function buy() {
-        var intv = document.getElementById("interval");
+        var e = document.getElementById("interval");
+        var intv = e.options[e.selectedIndex].value;
 
         console.log("Interval = " + intv);
 
