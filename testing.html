@@ -5,8 +5,10 @@
       src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.2/fastspring-builder.min.js"
       type="text/javascript"
       data-storefront="aharvey.test.onfastspring.com/popup-aharvey">
+</script>
 
-      function checkout() {
+<script type="text/javascript">
+      function buy() {
         var intv = document.getElementById("interval");
 
         console.log(intv);
@@ -46,7 +48,6 @@
     <option value="year">Yearly</option>
   </select></p>
 
-  <p><button data-fsc-item-path-value='basic-subscription' onclick="checkout();" >
-	Add to cart</button></p>
+  <p><button onclick="buy();" >Add to cart</button></p>
 </body>
 </html>
