@@ -5,12 +5,48 @@
       src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.2/fastspring-builder.min.js"
       type="text/javascript"
       data-storefront="aharvey.test.onfastspring.com/popup-aharvey">
+
+      function checkout() {
+        var intv = document.getElementById("interval");
+
+        console.log(intv);
+
+        fastspring.builder.secure(
+        			{
+        				"contact": {
+        				"email":"aharvey@fastspring.com",
+        				"firstName":"Adam",
+        				"lastName":"Harvey"
+        				},
+        				"items":
+        					[
+        				   		{
+        						    "product": "basic-subscription",
+        						    "quantity": 1,
+        						    "pricing": {
+          								"price": {
+          									"USD": 10.00
+          								},
+                          "interval": intv,
+                          "intervalLength": 1
+          							}
+        				   		}
+        				 	]
+        			});
+        		fastspring.builder.checkout();
+      }
   </script>
 </header>
 <body>
-  <span data-fsc-item-path="sko-demo-product" data-fsc-item-display></span>
+  <span data-fsc-item-path="basic-subscription" data-fsc-item-display></span>
+  <span data-fsc-item-path="basic-subscription" data-fsc-item-price></span>
 
-  <p><button data-fsc-item-path-value='sko-demo-product' data-fsc-action="Add, Checkout" >
+  <p><select id="interval">
+    <option value="month">Monthly</option>
+    <option value="year">Yearly</option>
+  </select></p>
+
+  <p><button data-fsc-item-path-value='basic-subscription' onclick="checkout();" >
 	Add to cart</button></p>
 </body>
 </html>
