@@ -1,3 +1,20 @@
+/*
+
+  Example page demonstrating the use of secure requests to overwrite the interval unit and number of
+  billings for a subscription order. By passing the values in a secure JSON object, we are able to
+  overwrite the value defined at the product level in the FastSpring dashboard
+
+  Access key is required for secure payloads and can be found in the dashboard:
+    Integrations --> Store Builder Library --> Access Key
+
+  For test sites it is not necessary to use encryption.
+
+  Documentation:
+    https://fastspring.com/docs/passing-sensitive-data-with-secure-requests
+    https://fastspringexamples.com/method/fastspring-builder-securesecurepayload-securekey/
+
+*/
+
 <html>
 <header>
   <script
@@ -9,15 +26,17 @@
 </script>
 
 <script type="text/javascript">
+
       function buy() {
-        // select interval choice from drop-down menu
+        // select interval value from drop-down menu
         var e = document.getElementById("interval");
         var intv = e.options[e.selectedIndex].value;
 
+        // get the number of billings for the subscription
         var billings = document.getElementById("billings").value;
         console.log("Interval = " + intv + " / Number of Billings = " + billings);
 
-        // build the secure payload
+        // build the secure payload containing one subscription product and overwriting the interval and intervalcount
         fastspring.builder.secure(
         			{
         				"contact": {
@@ -30,6 +49,7 @@
         				   		{
         						    "product": "basic-subscription",
         						    "quantity": 1,
+                        "quantityBehavior": "hide",
         						    "pricing": {
           								"price": {
           									"USD": 10.00
@@ -45,6 +65,7 @@
       }
   </script>
 </header>
+
 <body>
   <span data-fsc-item-path="basic-subscription" data-fsc-item-display></span>
   <span data-fsc-item-path="basic-subscription" data-fsc-item-price></span>
