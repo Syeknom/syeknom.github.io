@@ -1,0 +1,9 @@
+- license generated linked to active subscriptions
+- can use the api to determine what subscription a consumer is linked to
+--> use /accounts api to provide email as key and retrieve a list of subscriptions
+--> lookup the subscriptions using the /subscriptions endpoint to find the fufillment details
+
+--> open up a PF jira ticket
+
+-- bigger customers can have more than one remittance Currency
+  --> this is a manual process though
