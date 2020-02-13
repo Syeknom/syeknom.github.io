@@ -42,25 +42,30 @@
   </script>
 
   <script type="text/javascript">
+
+      // Read More/Read Less for item description
       function showmore(readmorenumber) {
-      var dotsEle = "dots" + readmorenumber;
-      var moreTextEle = "more" + readmorenumber;
-      var btnTextEle = "readmore" + readmorenumber;
+        var dotsEle = "dots" + readmorenumber;
+        var moreTextEle = "more" + readmorenumber;
+        var btnTextEle = "readmore" + readmorenumber;
+        var lessTextEle = "less" + readmorenumber;
 
-      var dots = document.getElementById(dotsEle);
-      var moreText = document.getElementById(moreTextEle);
-      var btnText = document.getElementById(btnTextEle);
+        var dots = document.getElementById(dotsEle);
+        var moreText = document.getElementById(moreTextEle);
+        var btnText = document.getElementById(btnTextEle);
+        var lessText = document.getElementById(lessTextEle);
 
-      if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "More Information";
-        moreText.style.display = "none";
-      } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Less Information";
-        moreText.style.display = "inline";
+        if (dots.style.display === "none") {
+          dots.style.display = "inline";
+          btnText.innerHTML = "More Information";
+          moreText.style.display = "none"
+        } else {
+          dots.style.display = "none";
+          btnText.innerHTML = "Less Information";
+          moreText.style.display = "inline";
+          lessText.style.display = "none";
+        }
       }
-    }
   </script>
 
 </head>
@@ -86,7 +91,7 @@
         <tbody>
           <tr>
             <td><span data-fsc-item-path="demo-product-1" data-fsc-item-display /></td>
-            <td><span data-fsc-item-path="demo-product-1" data-fsc-item-description-summary />
+            <td><span data-fsc-item-path="demo-product-1" data-fsc-item-description-summary id="less1"/>
                 <span id="dots1">...</span><span data-fsc-item-path="demo-product-1" data-fsc-item-description-full id="more1" />
                 <button onclick="showmore(1)" id="readmore1">Read more</button>
             </td>
@@ -95,7 +100,7 @@
           </tr>
           <tr>
             <td><span data-fsc-item-path="demo-product-2" data-fsc-item-display /></td>
-            <td><span data-fsc-item-path="demo-product-2" data-fsc-item-description-summary />
+            <td><span data-fsc-item-path="demo-product-2" data-fsc-item-description-summary id="less2"/>
                 <span id="dots2">...</span><span data-fsc-item-path="demo-product-2" data-fsc-item-description-full id="more2" />
                 <button onclick="showmore(2)" id="readmore1">Read more</button></td>
             <td><span data-fsc-item-path="demo-product-2" data-fsc-item-price /></td>
