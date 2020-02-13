@@ -71,11 +71,13 @@
       data-continuous="true">
 
       function beforeRequestsCallbackFunction() {
+        console.log(">> beforeRequestsCallbackFunction");
       	var fsb_spinner=document.getElementById("fastspring_spinner");
       	fsb_spinner.style.display = "block";
       }
 
       function afterMarkupCallbackFunction() {
+        console.log(">> afterMarkupCallBack");
       	init();
           var fsb_spinner=document.getElementById("fastspring_spinner");
           fsb_spinner.style.animationName="fsb-revfadeIn";
