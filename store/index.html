@@ -69,6 +69,21 @@
       data-before-requests-callback="beforeRequestsCallbackFunction"
       data-after-markup-callback="afterMarkupCallbackFunction"
       data-continuous="true">
+
+      function beforeRequestsCallbackFunction() {
+      	var fsb_spinner=document.getElementById("fastspring_spinner");
+      	fsb_spinner.style.display = "block";
+      }
+
+      function afterMarkupCallbackFunction() {
+      	init();
+          var fsb_spinner=document.getElementById("fastspring_spinner");
+          fsb_spinner.style.animationName="fsb-revfadeIn";
+          setTimeout(function(){
+              fsb_spinner.style.animationName = "fsb-fadeIn";
+              fsb_spinner.style.display = "none";
+          },450);
+      }
   </script>
 
   <script type="text/javascript">
@@ -99,20 +114,6 @@
         }
       }
 
-      function beforeRequestsCallbackFunction() {
-      	var fsb_spinner=document.getElementById("fastspring_spinner");
-      	fsb_spinner.style.display = "block";
-      }
-
-      function afterMarkupCallbackFunction() {
-      	init();
-          var fsb_spinner=document.getElementById("fastspring_spinner");
-          fsb_spinner.style.animationName="fsb-revfadeIn";
-          setTimeout(function(){
-              fsb_spinner.style.animationName = "fsb-fadeIn";
-              fsb_spinner.style.display = "none";
-          },450);
-      }
 
   </script>
 
