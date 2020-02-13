@@ -30,6 +30,33 @@
 
   .more {display: none;}
 
+  #fastspring_spinner
+  {
+  	width: 100%;
+  	height: 100%;
+  	z-index: 99999998;
+  	background: rgba(0,0,0,0.4);
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  }
+
+  #fastspring_spinner img
+  {
+  	-webkit-animation-duration: .4s;
+  	animation-duration: .4s;
+  	-webkit-animation-delay: .4s;
+  	animation-delay: .4s;
+  	-webkit-animation-name: fsb-fadeIn;
+  	animation-name: fsb-fadeIn;
+  	position: fixed;
+  	top: 50%;
+  	margin-top: -50px;
+  	left: 50%;
+  	margin-left: -50px;
+  	z-index: 99999999;
+  }
+
   </style>
 
   <!-- FastSpring SBL integration
@@ -68,10 +95,33 @@
           lessText.style.display = "none";
         }
       }
+
+      function beforeRequestsCallbackFunction() {
+      	var fsb_spinner=document.getElementById("fastspring_spinner");
+      	fsb_spinner.style.display = "block";
+      }
+
+      function afterMarkupCallbackFunction() {
+      	init();
+          var fsb_spinner=document.getElementById("fastspring_spinner");
+          fsb_spinner.style.animationName="fsb-revfadeIn";
+          setTimeout(function(){
+              fsb_spinner.style.animationName = "fsb-fadeIn";
+              fsb_spinner.style.display = "none";
+          },450);
+      }
+
   </script>
 
 </head>
 <body>
+
+  <!--
+  Spinner to display action taking place.
+  -->
+  <div id="fastspring_spinner">
+    <img src="https://d1f8f9xcsvx3ha.cloudfront.net/pinhole/spin.svg" />
+  </div>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
