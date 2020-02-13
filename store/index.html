@@ -26,6 +26,15 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
+  <!-- FastSpring SBL integration
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script
+      id="fsc-api"
+      src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.2/fastspring-builder.min.js"
+      type="text/javascript"
+      data-storefront="aharvey.test.onfastspring.com/popup-aharvey">
+  </script>
+
 </head>
 <body>
 
@@ -36,6 +45,32 @@
       <div class="one-half column" style="margin-top: 25%">
         <h4>Adam's FastSpring SBL Store</h4>
         <p>This page is set up to test and demonstrate a <a href="https://fastspring.com/docs/store-builder-library">FastSpring SBL integration</a>.</p>
+
+        <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span data-fsc-item-path="demo-product-1" data-fsc-item-display><-- Text here will be filled --></span></td>
+            <td><span data-fsc-item-path="demo-product-1" data-fsc-item-description-summary /></td>
+            <td><span data-fsc-item-path="demo-product-1" data-fsc-item-price></span></td>
+            <td><button data-fsc-item-path-value='demo-product-1' data-fsc-action="Add, Checkout" class="button-primary">Buy Now</button></span></td>
+          </tr>
+          <tr>
+            <td><span data-fsc-item-path="demo-product-2" data-fsc-item-display><-- Text here will be filled --></span></td>
+            <td><span data-fsc-item-path="demo-product-2" data-fsc-item-description-summary /></td>
+            <td><span data-fsc-item-path="demo-product-2" data-fsc-item-price></span></td>
+            <td><button data-fsc-item-path-value='demo-product-2' data-fsc-action="Add, Checkout" class="button-primary">Buy Now</button></span></td>
+          </tr>
+        </tbody>
+      </table>
+
       </div>
     </div>
   </div>
