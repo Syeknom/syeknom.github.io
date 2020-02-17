@@ -222,7 +222,7 @@
                   console.log(item);
                   if (item.pid == "basic-subscription") {
                     console.log(">>> " + JSON.stringify(item.subscription));
-                    console.log(">>> " + item.subscription.intervalunit);
+                    console.log(">>> " + JSON.stringify(item.subscription[0].intervalunit));
                     console.log(">>> " + item.subscription["intervalunit"]);
                     document.getElementById("basicsubscription-interval").innerHTML = item.subscription.intervalunit;
                   }
