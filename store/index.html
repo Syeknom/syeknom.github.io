@@ -222,8 +222,8 @@
                   console.log(item);
                   if (item.pid == "basic-subscription") {
                     console.log(">>> " + JSON.stringify(item.subscription));
-                    console.log(">>> " + JSON.stringify(item.subscription["intervalunit"]));
-                    console.log(">>> " + item.subscription["intervalunit"]);
+                    console.log(">>> " + JSON.stringify(item.subscription["intervalUnit"]));
+                    console.log(">>> " + item.subscription["intervalUnit"]);
                     document.getElementById("basicsubscription-interval").innerHTML = item.subscription.intervalunit;
                   }
       						if (item.selected) {
