@@ -81,6 +81,72 @@
       to {
         opacity: 0; } }
 
+    .minicart {
+          border-radius: 5px;
+          position: fixed;
+          -webkit-box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+          -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+          transition: -webkit-box-shadow 0.3s ease-in-out;
+          -o-transition: box-shadow 0.3s ease-in-out;
+          transition: box-shadow 0.3s ease-in-out;
+          transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+          -webkit-transition: width 0.3s, height 0.3s;
+          /* For Safari 3.1 to 6.0 */
+          -o-transition: width 0.3s, height 0.3s;
+          transition: width 0.3s, height 0.3s;
+          color: black;
+          background: white;
+          z-index: 999998;
+          height: 58px;
+          width: 58px; }
+
+    .minicart.open {
+          border-radius: 0px; }
+
+    .minicart.topright {
+          top: 20px;
+          right: 20px; }
+
+    .minicart.topleft {
+          top: 20px;
+          left: 20px; }
+
+    .minicart.bottomright {
+          bottom: 20px;
+          right: 20px; }
+
+    .minicart.bottomleft {
+          bottom: 20px;
+          left: 20px; }
+
+    .minicart:hover {
+          -webkit-box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.5); }
+
+    .minicart .fa {
+          font-size: 25px;
+          padding: 15px; }
+
+    .minicart-count {
+          position: absolute;
+          background: red;
+          border-radius: 50%;
+          height: 20px;
+          width: 20px;
+          line-height: 21px;
+          text-align: center;
+          color: white;
+          font-size: 12px; }
+
+    .topleft .minicart-count, .bottomleft .minicart-count {
+          top: -10px;
+          right: -10px; }
+
+    .topright .minicart-count, .bottomright .minicart-count {
+          top: -10px;
+          left: -10px; }
+
   </style>
 
   <!-- FastSpring SBL integration
@@ -202,6 +268,11 @@
       </table>
 
       <p><button class="button-primary" data-fsc-action="Checkout">Checkout</button></p>
+
+      <div class="minicart bottomright" data-fsc-minicart>
+        <i class="fa fa-shopping-cart fsb-icon" aria-hidden="true"></i>
+        <div class="minicart-count" id="minicart-count"></div>
+      </div>
 
       </div>
     </div>
