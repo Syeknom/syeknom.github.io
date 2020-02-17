@@ -158,6 +158,7 @@
       data-storefront="aharvey.test.onfastspring.com/popup-aharvey"
       data-before-requests-callback="beforeRequestsCallbackFunction"
       data-after-markup-callback="afterMarkupCallbackFunction"
+      data-data-callback="dataCallback"
       data-continuous="true">
 </script>
 
@@ -204,6 +205,25 @@
         }
       }
 
+      function dataCallback(data) {
+      	var minicart = document.getElementById("minicart-count");
+      	if(minicart) {
+      		let inCart = 0;
+      		if (data && data.hasOwnProperty('groups')) {
+      			const { groups } = data;
+      			groups.forEach(group => {
+      				if (group.items && Array.isArray(group.items)) {
+      					group.items.forEach(item => {
+      						if (item.selected) {
+      							inCart += item.quantity;
+      						}
+      					});
+      				}
+      			});
+      		}
+      		document.getElementById("minicart-count").innerHTML = inCart;
+      	}
+      }
 
   </script>
 
