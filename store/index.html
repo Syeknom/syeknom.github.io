@@ -219,6 +219,7 @@
       			groups.forEach(group => {
       				if (group.items && Array.isArray(group.items)) {
       					group.items.forEach(item => {
+                  console.log(item);
                   if (item.pid == "basic-subscription") {
                     console.log(">>> " + item.subscription.intervalunit;
                     document.getElementById("basicsubscription-interval").innerHTML = item.subscription.intervalunit;
