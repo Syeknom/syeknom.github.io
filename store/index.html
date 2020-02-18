@@ -117,7 +117,7 @@
                       basicSubInCart = true;
                       disablebuybutton("basicSubButton");
                     } else {
-                      enablebuybutton("basicSubButton");
+                      if document.getElementById(product).disabled  { enablebuybutton("basicSubButton"); }
                     }
                   }
       						if (item.selected) {
