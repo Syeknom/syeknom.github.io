@@ -93,6 +93,12 @@
         document.getElementById(product).style.borderColor = '#a2afb3';
       }
 
+      function enablebuybutton(product) {
+        document.getElementById(product).disabled = false;
+        document.getElementById(product).style.backgroundColor = '#33C3F0';
+        document.getElementById(product).style.borderColor = '#33C3F0';
+      }
+
       function dataCallback(data) {
         console.log(">> datacallback");
         // get number of items in the cart
@@ -110,6 +116,8 @@
                     if (item.selected) {
                       basicSubInCart = true;
                       disablebuybutton("basicSubButton");
+                    } else {
+                      enablebuybutton("basicSubButton");
                     }
                   }
       						if (item.selected) {
