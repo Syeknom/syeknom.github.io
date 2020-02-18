@@ -87,6 +87,12 @@
         }
       }
 
+      function disablebuybutton(product) {
+        document.getElementById(product).disabled = true;
+        document.getElementById(product).style.backgroundColor = '#a2afb3';
+        document.getElementById(product).style.borderColor = '#a2afb3';
+      }
+
       function dataCallback(data) {
         // get number of items in the cart
       	var minicart = document.getElementById("minicart-count");
@@ -102,9 +108,7 @@
                     document.getElementById("basicsubscription-interval").innerHTML = item.subscription["intervalUnit"];
                     if (item.selected) {
                       basicSubInCart = true;
-                      document.getElementById("basicSubButton").disabled = true;
-                      document.getElementById("basicSubButton").style.backgroundColor = '#a2afb3';
-                      document.getElementById("basicSubButton").style.borderColor = '#a2afb3';
+                      disablebuybutton("basicSubButton");
                     }
                   }
       						if (item.selected) {
@@ -119,9 +123,7 @@
       }
 
       function addSubClick() {
-        document.getElementById("basicSubButton").disabled = true;
-        document.getElementById("basicSubButton").style.backgroundColor = '#a2afb3';
-        document.getElementById("basicSubButton").style.borderColor = '#a2afb3';
+        disablebuybutton("basicSubButton");
       }
 
   </script>
