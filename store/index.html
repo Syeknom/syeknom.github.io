@@ -42,6 +42,9 @@
 </script>
 
 <script type="text/javascript">
+
+      var basicSubInCart = false;
+
       function beforeRequestsCallbackFunction() {
         console.log(">> beforeRequestsCallbackFunction");
       	var fsb_spinner=document.getElementById("fastspring_spinner");
@@ -97,6 +100,10 @@
                   console.log(item);
                   if (item.pid == "basic-subscription") {
                     document.getElementById("basicsubscription-interval").innerHTML = item.subscription["intervalUnit"];
+                    if (item.selected) {
+                      basicSubInCart = true;
+                      document.getElementById("basicSubButton").disabled = true;
+                    }
                   }
       						if (item.selected) {
       							inCart += item.quantity;
@@ -107,6 +114,10 @@
       		}
       		document.getElementById("minicart-count").innerHTML = inCart;
       	}
+      }
+
+      function addSubClick() {
+        document.getElementById("basicSubButton").disabled = true;
       }
 
   </script>
@@ -169,7 +180,7 @@
             </td>
             <td width="10%"><span data-fsc-item-path="basic-subscription" data-fsc-item-price /></td>
             <td width="10%">per <span id="basicsubscription-interval" /></td>
-            <td width="20%"><button data-fsc-item-path-value='basic-subscription' data-fsc-action="Add" class="button-primary">Add to Cart</button></td>
+            <td width="20%"><button data-fsc-item-path-value="basic-subscription" id="basicSubButton" onclick="addSubClick" data-fsc-action="Add" class="button-primary">Add to Cart</button></td>
           </tr>
         </tbody>
       </table>
