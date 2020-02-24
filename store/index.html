@@ -101,6 +101,7 @@
 
       function dataCallback(data) {
         console.log(">> datacallback");
+        console.log(JSON.stringify(data));
         // get number of items in the cart
       	var minicart = document.getElementById("minicart-count");
       	if(minicart) {
@@ -110,7 +111,6 @@
       			groups.forEach(group => {
       				if (group.items && Array.isArray(group.items)) {
       					group.items.forEach(item => {
-                  console.log(item);
                   if (item.pid == "basic-subscription") {
                     document.getElementById("basicsubscription-interval").innerHTML = item.subscription["intervalUnit"];
                     if (item.selected) {
