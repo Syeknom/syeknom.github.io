@@ -32,6 +32,20 @@
         document.getElementById("log").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
     }
 </script>
+    
+    
+<!--
+    Configure a checkout button.
+-->
+<button onclick="fastspring.builder.checkout();">Checkout</button>
+
+<!--
+    DEMO EFFECTS
+        - The below div will be updated to include the returned data from the data-popup-webhook-received
+-->
+<br /><br />Data returned: <div id="log"></div>
+<div id="log2"></div>
+    
 </body>
 
 </html>
