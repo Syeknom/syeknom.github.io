@@ -1,59 +1,65 @@
-<html>
-<header>
 <script
     id="fsc-api"
     src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js"
     type="text/javascript"
     data-storefront="fastspringexamples.onfastspring.com/popup-fastspringexamples"
-    data-popup-event-received="dataPopupEventReceived"
-    data-popup-closed="dataPopupClosed"
-    data-popup-webhook-received="dataPopupWebhookReceived"
-    data-continuous="true">
-</script>
-</header>
-<body>
-<!--
-    Initialize the cart for demo purposes
--->
-<script>
-    fastspring.builder.reset();
-    fastspring.builder.add("phot-io-main-app");
+    data-popup-closed="fsPopup"
+    data-popup-webhook-received="fsBrowserHook"
+    data-popup-event-received="fsPopupEvent"
+    continuous="true">
 </script>
 
-<!--
-    dataPopupClosed
-        - In this example, it will write div with the id log with the returned data.
--->
-<script>
-    function dataPopupEventReceived(data) {
-        document.getElementById("log2").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
+
+<script type="text/javascript">
+  var purchasedEvent = false;
+  var orderComplete = false;
+  
+	function fsPopup(fsData) {
+		if (fsData && fsData.reference && orderComplete) {
+      console.log("Order Complete");
+			console.log(`Order data from popup closed is ID: ${fsData.id} & REF: ${fsData.reference}`)
+			// ORDER COMPLETED
+			// REDIRECT TO PSP USER AREA IF DESIRED
+			fastspring.builder.reset()
+		} else if (fsData && fsData.id && purchasedEvent && !orderComplete) {
+      // If the checkout purchase event has completed but the order is not yet fully complete (paid)
+      // then it is pending payment:
+      console.log("Pending Payment");
+			console.log(`Order data from popup closed is ID: ${fsData.id}`)
+			// ORDER PENDING
+			// MAKE AJAX CALL WITH fsData.id
+			// REDIRECT TO PSP USER AREA IF DESIRED
+			fastspring.builder.reset()
+		} else {
+			console.log('No order completed')
+		}
+	};
+	function fsBrowserHook(fsOrderData) {
+		if (fsOrderData) {
+      orderComplete = true;
+			console.log(`Order data from browser hook is ID: ${fsOrderData.id}`)
+			// MAKE AJAX/FETCH CALL if order is completed
+		} else {
+      // If the order has not completed (i.e. been fully paid) then we flag that.
+      orderComplete = false;
     }
-    
-      function dataPopupWebhookReceived(data) {
-       console.log("---- dataPopupWebhookReceived");
-       console.log(JSON.stringify(data, null, 4));
-       document.getElementById("log3").innerHTML = "<pre> WEBHOOK RECEIVED:  --- "+JSON.stringify(data, null, 4)+"</pre>";
 
-  }
-    function dataPopupClosed(data) {
-        document.getElementById("log1").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
+    function fsPopupEvent(fsEventData) {
+      if fsEventData {
+        if (fsEventData.event == "FSC-purchaseComplete" && fsEventData.fsc-eventAction == "Purchase Complete") {
+          purchasedEvent = true;
+        } else {
+          purchasedEvent = false;
+        }
+      }
     }
+	}
 </script>
-    
-    
-<!--
-    Configure a checkout button.
--->
-<button onclick="fastspring.builder.checkout();">Checkout</button>
+<script type="text/javascript">
+	function buyFS() {
+		fastspring.builder.add('cad');
+		fastspring.builder.checkout();
+	};
+</script>
 
-<!--
-    DEMO EFFECTS
-        - The below div will be updated to include the returned data from the data-popup-webhook-received
--->
-<br /><br />dataPopupClosed data returned: <div id="log1"></div>
-<br /><br />dataPopupEventReceived data returned: <div id="log2"></div>
-<br /><br />dataPopupWebhookReceived data returned: <div id="log3"></div>
-    
-</body>
-
-</html>
+<button onclick="buyFS();">Buy</button>
