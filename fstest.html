@@ -48,10 +48,11 @@
 
     function fsPopupEvent(fsEventData) {
 	    console.log(">> fsPopupEvent");
-	    console.log(">> " + fsEventData.event);
+	    console.log(">> " + fsEventData["event"]);
+	    console.log(">> " + fsEventData["fsc-eventAction"]);
 	    console.log(JSON.stringify(fsEventData, null, 4));
       if (fsEventData) {
-        if (fsEventData.event == "FSC-purchaseComplete") {
+        if (fsEventData["event"] == "FSC-purchaseComplete" && fsEventData["fsc-eventAction"] == "Purchase Complete") {
           purchasedEvent = true;
         } else {
           purchasedEvent = false;
