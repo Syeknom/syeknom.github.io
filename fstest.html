@@ -56,6 +56,9 @@
 	// This event triggers on a new event and will register as Purchase Complete once 
 	// the checkout reaches a thank you page, even if the order has not been paid.
 	    
+      console.log("FS Event: " + fsEventData["event"]);
+      console.log("FS Event Action: " + fsEventData["fsc-eventAction"]);
+	    
       if (fsEventData) {
         if (fsEventData["event"] == "FSC-purchaseComplete" && fsEventData["fsc-eventAction"] == "Purchase Complete") {
 	// This will set the variable to true if the customer reaches a successful thank you page on the checkout.
