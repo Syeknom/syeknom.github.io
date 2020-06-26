@@ -21,20 +21,24 @@
 			// ORDER COMPLETED
 			// REDIRECT TO PSP USER AREA IF DESIRED
 			
-			console.log(`Order data from popup closed is ID: ${fsData.id} & REF: ${fsData.reference}`)
-			fastspring.builder.reset()
+			console.log("Order Completed");
+			console.log(`Order data from popup closed is ID: ${fsData.id} & REF: ${fsData.reference}`);
+			fastspring.builder.reset();
+			
 		} else if (fsData && fsData.id && purchasedEvent && !orderComplete) {
 			// ORDER PENDING
 			// If the checkout purchase event has completed but the order is not yet fully complete (paid)
 			// then it is pending payment:
 
-			console.log(`Order data from popup closed is ID: ${fsData.id}`)
+			console.log("Order Pending");
+			console.log(`Order data from popup closed is ID: ${fsData.id}`);
 
 			// MAKE AJAX CALL WITH fsData.id
 			// REDIRECT TO PSP USER AREA IF DESIRED
-			fastspring.builder.reset()
+			fastspring.builder.reset();
+			
 		} else {
-			console.log('No order completed')
+			console.log('No order completed');
 		}
 	} //fsPopup
 	
@@ -44,7 +48,7 @@
 		
 		if (fsOrderData) {
       			orderComplete = true;
-			console.log(`Order data from browser hook is ID: ${fsOrderData.id}`)
+			console.log(`Order data from browser hook is ID: ${fsOrderData.id}`);
 			// MAKE AJAX/FETCH CALL if order is completed
 		} else {
       		// If the order has not completed (i.e. been fully paid) then we flag that.
