@@ -2,7 +2,7 @@
     id="fsc-api"
     src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js"
     type="text/javascript"
-    data-storefront="fastspringexamples.test.onfastspring.com/popup-fastspringexamples"
+    data-storefront="pspaudioware.test.onfastspring.com/popup-pspaudioware"
     data-popup-closed="fsPopup"
     data-popup-webhook-received="fsBrowserHook"
     data-popup-event-received="fsPopupEvent"
@@ -15,58 +15,63 @@
   var orderComplete = false;
   
 	function fsPopup(fsData) {
+		// This event is triggered when the popup checkout window is closed.
+		
 		if (fsData && fsData.reference && orderComplete) {
-      console.log("Order Complete");
-			console.log(`Order data from popup closed is ID: ${fsData.id} & REF: ${fsData.reference}`)
 			// ORDER COMPLETED
 			// REDIRECT TO PSP USER AREA IF DESIRED
+			
+			console.log(`Order data from popup closed is ID: ${fsData.id} & REF: ${fsData.reference}`)
 			fastspring.builder.reset()
 		} else if (fsData && fsData.id && purchasedEvent && !orderComplete) {
-      // If the checkout purchase event has completed but the order is not yet fully complete (paid)
-      // then it is pending payment:
-      console.log("Pending Payment");
-			console.log(`Order data from popup closed is ID: ${fsData.id}`)
 			// ORDER PENDING
+			// If the checkout purchase event has completed but the order is not yet fully complete (paid)
+			// then it is pending payment:
+
+			console.log(`Order data from popup closed is ID: ${fsData.id}`)
+
 			// MAKE AJAX CALL WITH fsData.id
 			// REDIRECT TO PSP USER AREA IF DESIRED
 			fastspring.builder.reset()
 		} else {
 			console.log('No order completed')
 		}
-	};
+	} //fsPopup
+	
 	function fsBrowserHook(fsOrderData) {
+		// This event triggers if the browser receives a webhook informing it that the order is
+		// complete - this will only trigger if the order has also been paid.
+		
 		if (fsOrderData) {
-      orderComplete = true;
+      			orderComplete = true;
 			console.log(`Order data from browser hook is ID: ${fsOrderData.id}`)
 			// MAKE AJAX/FETCH CALL if order is completed
 		} else {
-      // If the order has not completed (i.e. been fully paid) then we flag that.
-      orderComplete = false;
+      		// If the order has not completed (i.e. been fully paid) then we flag that.
+      		orderComplete = false;
 		}
-		console.log(">> orderComplete = " + orderComplete);
-    }
+    	} //fsBrowserHook
 
     function fsPopupEvent(fsEventData) {
-	    console.log(">> fsPopupEvent");
-	    console.log(">> " + fsEventData["event"]);
-	    console.log(">> " + fsEventData["fsc-eventAction"]);
-	    console.log(JSON.stringify(fsEventData, null, 4));
+	// This event triggers on a new event and will register as Purchase Complete once 
+	// the checkout reaches a thank you page, even if the order has not been paid.
+	    
       if (fsEventData) {
         if (fsEventData["event"] == "FSC-purchaseComplete" && fsEventData["fsc-eventAction"] == "Purchase Complete") {
+	// This will set the variable to true if the customer reaches a successful thank you page on the checkout.
           purchasedEvent = true;
         } else {
           purchasedEvent = false;
         }
       }
-	    console.log(">> purchasedEvent = " + purchasedEvent);
-    }
+    } //fsPopupEvent
 	
 </script>
 <script type="text/javascript">
 	function buyFS() {
-		fastspring.builder.add('phot-io-main-app');
+		fastspring.builder.add('adamtest');
 		fastspring.builder.checkout();
-	};
+	}
 </script>
 
 <button onclick="buyFS();">Buy</button>
