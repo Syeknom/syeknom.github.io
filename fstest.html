@@ -45,7 +45,7 @@
     }
 
     function fsPopupEvent(fsEventData) {
-      if fsEventData {
+      if (fsEventData) {
         if (fsEventData.event == "FSC-purchaseComplete" && fsEventData.fsc-eventAction == "Purchase Complete") {
           purchasedEvent = true;
         } else {
