@@ -25,6 +25,8 @@
 -->
 <script>
   function dataPopupWebhookReceived(data) {
+       console.log("---- dataPopupWebhookReceived");
+       console.log(JSON.stringify(data, null, 4));
        document.getElementById("log2").innerHTML = "<pre> WEBHOOK RECEIVED:  --- "+JSON.stringify(data, null, 4)+"</pre>";
 
   }
