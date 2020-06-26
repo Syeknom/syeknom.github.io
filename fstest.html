@@ -4,9 +4,8 @@
     id="fsc-api"
     src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js"
     type="text/javascript"
-    data-storefront="fastspringexamples.onfastspring.com/popup-fastspringexamples"
-    data-popup-closed="dataPopupClosed"
-    data-popup-webhook-received="dataPopupWebhookReceived"
+    data-storefront="fastspringexamples.test.onfastspring.com/popup-fastspringexamples"
+   data-popup-event-received="eventReceivedTest"
     data-continuous="true">
 </script>
 </header>
@@ -24,13 +23,8 @@
         - In this example, it will write div with the id log with the returned data.
 -->
 <script>
-  function dataPopupWebhookReceived(data) {
-       console.log("---- dataPopupWebhookReceived");
-       console.log(JSON.stringify(data, null, 4));
-       document.getElementById("log2").innerHTML = "<pre> WEBHOOK RECEIVED:  --- "+JSON.stringify(data, null, 4)+"</pre>";
-
-  }
-    function dataPopupClosed(data) {
+  
+      function eventReceivedTest(data) {
         document.getElementById("log").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
     }
 </script>
@@ -45,8 +39,7 @@
     DEMO EFFECTS
         - The below div will be updated to include the returned data from the data-popup-webhook-received
 -->
-<br /><br />dataPopupClosed data returned: <div id="log"></div>
-<br /><br />dataPopupWebhookReceived data returned: <div id="log2"></div>
+<br /><br />eventReceivedTest data returned: <div id="log"></div>
     
 </body>
 
