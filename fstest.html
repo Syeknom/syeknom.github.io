@@ -25,7 +25,7 @@
 -->
 <script>
   function dataPopupWebhookReceived() {
-            document.getElementById("log2").innerHTML = "<pre> WEBHOOK RECEIVED:  --- "+JSON.stringify(data, null, 4)+"</pre>";
+       document.getElementById("log2").innerHTML = "<pre> WEBHOOK RECEIVED:  --- "+JSON.stringify(data, null, 4)+"</pre>";
 
   }
     function dataPopupClosed(data) {
@@ -43,8 +43,8 @@
     DEMO EFFECTS
         - The below div will be updated to include the returned data from the data-popup-webhook-received
 -->
-<br /><br />Data returned: <div id="log"></div>
-<div id="log2"></div>
+<br /><br />dataPopupClosed data returned: <div id="log"></div>
+<br /><br />dataPopupWebhookReceived data returned: <div id="log2"></div>
     
 </body>
 
