@@ -24,7 +24,7 @@
         - In this example, it will write div with the id log with the returned data.
 -->
 <script>
-  function dataPopupWebhookReceived() {
+  function dataPopupWebhookReceived(data) {
        document.getElementById("log2").innerHTML = "<pre> WEBHOOK RECEIVED:  --- "+JSON.stringify(data, null, 4)+"</pre>";
 
   }
