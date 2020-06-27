@@ -19,7 +19,7 @@
 function deleteStorefront() {
   // delete the existing storefront element from the DOM and remove the FastSpring library.
   var fscScript = document.getElementById("fsc-api");
-  console.log("Deleting storefront: " + fscScript["data-storefront"]);
+  console.log("Deleting storefront: " + fscScript.getAttribute('data-storefront'));
   
    if (fscScript) {
 	// remove the DOM element
@@ -37,14 +37,12 @@ function updateStorefront() {
 
   // Create a new <script> element containing the details of the new storefront
   const script = document.createElement('script');
-  script.onload = function () {
-	  // configure the attributes for the new Popup Storefront
-	  script.setAttribute('id',"fsc-api"); 
-	  script.setAttribute('src',"https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js");
-	  script.setAttribute('data-storefront', "aharvey.test.onfastspring.com/popup-test");
-	  script.setAttribute('type', "text/javascript");
-  };
 
+  // configure the attributes for the new Popup Storefront
+  script.id = "fsc-api"; 
+  script.src = "https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js";
+  script.setAttribute('data-storefront', "aharvey.test.onfastspring.com/popup-test");
+  script.setAttribute('type', "text/javascript");
 	
   // append the new <script> element to the DOM
   document.head.appendChild(script); 
