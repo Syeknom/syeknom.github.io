@@ -1,0 +1,41 @@
+<script
+    id="fsc-api"
+    src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js"
+    type="text/javascript"
+    data-storefront="aharvey.test.onfastspring.com/popup-aharvey">
+</script>
+
+<p><button onClick="updateStorefront();">Switch Storefront</button></p>
+
+<p><button data-fsc-item-path-value='demo-product-1' data-fsc-action="Add, Checkout" >
+	Checkout
+ </button></p>
+  
+<script type="text/javascript">
+
+function updateStorefront() {
+  
+  var fscScript = document.getElementById("fsc-api");
+  console.log(fscScript);
+  
+   if (fscScript) {
+        fscScript.parentNode.removeChild(fscScript);
+        fscScript = null;
+        delete document.fastspring;
+    }
+  
+  const script = document.createElement('script');
+  script.onload = function () {
+    console.log('storefront loaded');
+  };
+  script.setAttribute('id',"fsc-api"); 
+  script.setAttribute('src',"https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js");
+  script.setAttribute('data-storefront', "aharvey.test.onfastspring.com/popup-test");
+  script.setAttribute('type', "text/javascript");
+  document.head.appendChild(script); 
+  
+  const newFscScript = document.getElementById("fsc-api");  
+  console.log(newFscScript);
+}
+
+</script>
