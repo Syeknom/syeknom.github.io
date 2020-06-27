@@ -8,7 +8,7 @@
 </script>
 </header>
 <body>
-<p><button onClick="updateStorefront();">Switch Storefront</button></p>
+<p><button onClick="switchStorefront();">Switch Storefront</button></p>
 
 <p><button data-fsc-item-path-value='demo-product-1' data-fsc-action="Add, Checkout" >
 	Checkout
@@ -17,38 +17,43 @@
 <script type="text/javascript">
 
 function deleteStorefront() {
-  // delete the existing storefront element from the DOM and remove the FastSpring library.
+  // Delete the existing storefront element from the DOM and remove the FastSpring library.
+	
   var fscScript = document.getElementById("fsc-api");
-  console.log("Deleting storefront: " + fscScript.getAttribute('data-storefront'));
-  
+
    if (fscScript) {
-	// remove the DOM element
+	console.log("Deleting storefront: " + fscScript.getAttribute('data-storefront'));
+	   
+	// Remove the DOM element
         fscScript.parentNode.removeChild(fscScript);
         fscScript = null;
-	// delete the loaded library
+	// Delete the loaded library
         delete document.fastspring;
     }	
 }
 	
-function updateStorefront() {
+function switchStorefront() {
 
-  // first delete the existing storefront from the DOM
+  // Here we will change from the old storefront to the new storefront
+	
+  // First delete the existing storefront from the DOM
   deleteStorefront();
 
   // Create a new <script> element containing the details of the new storefront
   const script = document.createElement('script');
 
-  // configure the attributes for the new Popup Storefront
+  // Configure the attributes for the new Popup Storefront
   script.id = "fsc-api"; 
   script.src = "https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js";
   script.setAttribute('data-storefront', "aharvey.test.onfastspring.com/popup-test");
   script.setAttribute('type', "text/javascript");
 
   script.onload = function () {
+	// Trigger when the new script has ben loaded
   	console.log("New storefront loaded: " + script.getAttribute('data-storefront'));
   };
 	
-  // append the new <script> element to the DOM
+  // Append the new <script> element to the DOM
   document.head.appendChild(script); 
 }
 
