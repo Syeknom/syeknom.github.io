@@ -48,7 +48,7 @@ function updateStorefront() {
   document.head.appendChild(script); 
   
   const newFscScript = document.getElementById("fsc-api");  
-  console.log("New Storefront <script>: " + newFscScript);
+  console.log("New Storefront <script>: " + newFscScript.getAttribute('data-storefront'));
 }
 
 </script>
