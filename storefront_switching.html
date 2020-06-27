@@ -43,12 +43,13 @@ function updateStorefront() {
   script.src = "https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js";
   script.setAttribute('data-storefront', "aharvey.test.onfastspring.com/popup-test");
   script.setAttribute('type', "text/javascript");
+
+  script.onload = () => {
+  	console.log("New storefront loaded: " + script.getAttribute('data-storefront')");
+  }
 	
   // append the new <script> element to the DOM
   document.head.appendChild(script); 
-  
-  const newFscScript = document.getElementById("fsc-api");  
-  console.log("New Storefront <script>: " + newFscScript.getAttribute('data-storefront'));
 }
 
 </script>
