@@ -28,6 +28,7 @@ function deleteStorefront() {
         fscScript.parentNode.removeChild(fscScript);
         fscScript = null;
 	// Delete the loaded library
+	delete fastspring;
         delete document.fastspring;
     }	
 }
