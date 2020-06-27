@@ -44,9 +44,9 @@ function updateStorefront() {
   script.setAttribute('data-storefront', "aharvey.test.onfastspring.com/popup-test");
   script.setAttribute('type', "text/javascript");
 
-  script.onload = () => {
+  script.onload = function () {
   	console.log("New storefront loaded: " + script.getAttribute('data-storefront')");
-  }
+  };
 	
   // append the new <script> element to the DOM
   document.head.appendChild(script); 
