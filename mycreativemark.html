@@ -1,0 +1,43 @@
+<html>
+<head>
+<script
+    id="fsc-api"
+    src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.3/fastspring-builder.min.js"
+    type="text/javascript"
+    data-storefront="aharvey.test.onfastspring.com"
+    data-access-key="WVD4LEQOT0UV0HKWYTDJSA">
+</script>
+</head>
+<body>
+<button onclick="pushToFastSpring();">Secure Checkout</button>
+
+<script type="text/javascript">
+	function pushToFastSpring() {
+		fastspring.builder.secure(
+			{
+				"contact": {
+				"email":"aharvey@fastspring.com",
+				"firstName":"Adam",
+				"lastName":"Harvey"
+				},
+				"items": 
+					[
+				   		{
+						    "product": "demo-product-1",
+                "display": {
+                  "en":"Demo Product 1"
+                },
+						    "quantity": 1,
+						    "pricing": {
+                  "price": {
+                    "EUR": 199.99
+                    }
+				   		}
+            }
+				 	]
+			});
+		fastspring.builder.checkout();
+	}
+</script>
+</body>
+</html>
