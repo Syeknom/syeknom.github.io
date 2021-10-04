@@ -1,0 +1,38 @@
+<button onclick="fastspring.builder.checkout();">Checkout</button>
+
+<!--
+    DEMO EFFECTS
+        - The below div will be updated to include the returned data from the data-popup-webhook-received
+-->
+<br /><br />Data returned: <div id="log"></div>
+
+<!--
+    DEMO SETUP
+        - Initialize the Store Builder Library
+-->
+<script
+    id="fsc-api"
+    src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.5/fastspring-builder.min.js"
+    type="text/javascript"
+    data-storefront="fastspringexamples.onfastspring.com/popup-fastspringexamples"
+    data-popup-webhook-received="dataPopupWebhookReceived"
+    data-continuous="true">
+</script>
+
+<!--
+    Initialize the cart for demo purposes
+-->
+<script>
+    fastspring.builder.reset();
+    fastspring.builder.add("phot-io-main-app");
+</script>
+
+<!--
+    dataPopupWebhookReceived
+        - In this example, it will write div with the id log with the returned data.
+-->
+<script>
+    function dataPopupWebhookReceived(data) {
+        document.getElementById("log").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
+    }
+</script>
