@@ -15,7 +15,7 @@
     src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.5/fastspring-builder.min.js"
     type="text/javascript"
     data-storefront="fastspringexamples.test.onfastspring.com/popup-fastspringexamples"
-    data-popup-webhook-received="dataPopupWebhookReceived"
+    data-popup-event-received="dataPopupEventReceived"
     data-continuous="true">
 </script>
 
@@ -28,11 +28,11 @@
 </script>
 
 <!--
-    dataPopupWebhookReceived
+    dataPopupEventReceived
         - In this example, it will write div with the id log with the returned data.
 -->
 <script>
-    function dataPopupWebhookReceived(data) {
+    function dataPopupEventReceived(data) {
         document.getElementById("log").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
     }
 </script>
