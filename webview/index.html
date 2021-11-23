@@ -1,0 +1,51 @@
+<html>
+  <head>
+    
+    <script
+      id="fsc-api"
+      src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.5/fastspring-builder.min.js"
+      type="text/javascript"
+      data-storefront="adamdemo.test.onfastspring.com/popup-rovio">
+    </script>
+    
+  </head>
+  <body>
+    
+    <script type="text/javascript">
+      
+    //Fire once the page is loaded.
+    document.addEventListener("DOMContentLoaded", function()
+      {
+        s =
+        {
+          //Reset the cart session  to remove everything added to the cart previously.
+          'reset':true,
+          //Define the product path(s) and the quantity to add.
+          'products' : [
+            {
+              'path':'angry-birds-2',
+              'quantity':1
+            },
+          ],
+          //Optionally apply a coupon
+          'coupon':'FREE',
+          //Optionally apply customer information to the order
+          'paymentContact':{  
+            'email':'aharvey@fastspring.com',
+            'firstName':'Adam', 
+            'lastName':'Harvey', 
+            'country': 'NL'  //optional
+          },
+          //Specify that when this JSON object is pushed to the Store Builder Library to begin checkout process.
+          'checkout':true
+        }
+        //Push the above JSON object to the Store Builder Library.
+        fastspring.builder.push(s);
+      });
+  </script>
+    
+    
+  </body>
+  
+  
+</html>
