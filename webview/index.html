@@ -6,7 +6,8 @@
       id="fsc-api"
       src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.5/fastspring-builder.min.js"
       type="text/javascript"
-      data-storefront="adamdemo.test.onfastspring.com/popup-coolors">
+      data-storefront="adamdemo.test.onfastspring.com/popup-coolors"
+      data-popup-closed="onFSPopupClosed">
     </script>
     
   </head>
@@ -44,6 +45,20 @@
       });
   </script>
     
+    
+    
+<script>
+    function onFSPopupClosed(orderReference) {
+      if (orderReference)
+      {
+           console.log(orderReference.id);
+           fastspring.builder.reset();
+           window.location.replace("https://syeknom.github.io/webview/complete.html");
+      } else {
+           console.log("no order ID");
+          }
+    }
+</script>
     
   </body>
   
