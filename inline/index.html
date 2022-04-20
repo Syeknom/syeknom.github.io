@@ -4,7 +4,9 @@
          id="fsc-api"
          src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/TNP-10608/fastspring-builder.js"
          type="text/javascript"
-         data-storefront="aharveyqa.test.qa1.onfastspring.com/inline-aharvey"></script>
+         data-storefront="aharveyqa.test.qa1.onfastspring.com/inline-aharvey"
+         data-data-callback="dataCallback"
+         data-continuous="true"></script>
    </head>
    <style>
       * {
@@ -23,6 +25,7 @@
       <div class="row">
          <div class="column">
             <h1>Inline Checkout Test</h1>
+            <br />Callback Payload: <div id="log"></div>
          </div>
          <div class="column">
             <div id="fsc-inline-checkout-container">
@@ -33,5 +36,12 @@
          fastspring.builder.add("demo-product-1");
          fastspring.builder.checkout();
       </script>
+      
+      <script>
+          function dataCallback(data) {
+              document.getElementById("log").innerHTML = "<pre>"+JSON.stringify(data, null, 4)+"</pre>";
+          }
+      </script>
+      
    </body>
 </html>
